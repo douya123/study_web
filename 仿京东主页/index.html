@@ -13,13 +13,14 @@
             <div id="topnav">
                 <div class="w">
                     <ul class="topnav-left">
-                        <li class="area">
-                            <div class="area-font">
+                        <li class="area" id="area">
+                            <div class="area-font" id="area-font">
                                 <i class="iconfont" style="color:red; font-size:11.5px;">&#xe61f;</i>
                                 <span>北京</span>
                                 
                             </div>                        
-                            <div class="area-case">
+                            <div class="area-case" id="area-case">
+                                <div class="dd"></div>
                                 <div class="area-item"><a href="javascript:;">北京</a></div>
                                 <div class="area-item"><a href="javascript:;">上海</a></div>
                                 <div class="area-item"><a href="javascript:;">天津</a></div>
@@ -59,41 +60,141 @@
                         </li>
                     </ul>
                     <ul class="topnav-right">
-                        <li>
-                            <a href="javascript:;">你好，请登录</a>
-                            &nbsp;&nbsp;
-                            <a href="javascript:;" style="color:red;">免费注册</a>
+                        <li class="logom">
+                            <div class="logon-font">
+                                <a href="javascript:;">你好，请登录</a>
+                                &nbsp;&nbsp;
+                                <a href="javascript:;" style="color:red;">免费注册</a>
+                            </div>                           
                         </li>
                         <li class="spacer"></li>
-                        <li>
-                            <a href="javascript:;">我的订单</a>
+                        <li class="oder">
+                            <div class="oder-font">
+                                <a href="javascript:;">我的订单</a>
+                            </div> 
                         </li>
                         <li class="spacer"></li>
-                        <li>
-                            <a href="javascript:;">我的京东</a>
-                            <i class="iconfont" style="font-size:10px">&#xe629;</i>                            
+                        <li class="user" id="user">
+                            <div class="user-font" id="user-font">
+                                <a href="javascript:;">我的京东</a>
+                                <i class="iconfont" style="font-size:10px">&#xe629;</i> 
+                            </div>
+                            <div class="user-case" id="user-case">
+                                <div class="user-top">
+                                    <div class="user-left">
+                                        <div class="user"><a href="javascript:;">待处理订单</a></div>
+                                        <div class="user"><a href="javascript:;">返修退货</a></div>
+                                        <div class="user"><a href="javascript:;">降价商品</a></div>
+                                    </div>
+                                    <div class="user-right">
+                                        <div class="user"><a href="javascript:;">消息</a></div>
+                                        <div class="user"><a href="javascript:;">我的问答</a></div>
+                                        <div class="user"><a href="javascript:;">我的关注</a></div>
+                                    </div>
+                                </div>
+                                <div class="user-bottom">
+                                    <div class="user-left">
+                                        <div class="user"><a href="javascript:;">我的京东</a></div>
+                                        <div class="user"><a href="javascript:;">我的白条</a></div>
+                                    </div>
+                                    <div class="user-right">
+                                        <div class="user"><a href="javascript:;">我的优惠券</a></div>
+                                        <div class="user"><a href="javascript:;">我的理财</a></div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </li>
                         <li class="spacer"></li>
-                        <li>
-                            <a href="javascript:;">京东会员</a>
+                        <li class="vip">
+                            <div class="vip-font">
+                                <a href="javascript:;">京东会员</a>
+                            </div>
                         </li>
                         <li class="spacer"></li>
-                        <li>
-                            <a href="javascript:;">企业采购</a>
+                        <li class="procure">
+                            <div class="procure-font">
+                                <a href="javascript:;">企业采购</a>
+                            </div>
                         </li>
                         <li class="spacer"></li>
-                        <li>
-                            <a href="javascript:;">客服服务</a>
-                            <i class="iconfont" style="font-size:10px">&#xe629;</i>    
+                        <li class="services" id="services"> <!-- 加一个class位置设为relative，好让绝对定位右边对齐 -->
+                            <div class="services-font" id="services-font">
+                                <!-- <a href="javascript:;"> -->客服服务<!-- </a> -->
+                                <i class="iconfont" style="font-size:10px">&#xe629;</i>
+                            </div>
+                            
+                            <div class="services-case" id="services-case">
+                                <div class="services-t">客户</div>
+                                <div class="services-c"><a href="javascript:;">帮助中心</a></div>
+                                <div class="services-c"><a href="javascript:;">售后服务</a></div>
+                                <div class="services-c"><a href="javascript:;">在线客服</a></div>
+                                <div class="services-c"><a href="javascript:;">意见建议</a></div>
+                                <div class="services-c"><a href="javascript:;">电话客服</a></div>
+                                <div class="services-c"><a href="javascript:;">客服邮箱</a></div>
+                                <div class="services-c"><a href="javascript:;">金融咨询</a></div>
+                                <div class="services-c"><a href="javascript:;">售全球客服</a></div>
+                                <div class="services-t">商户</div>
+                                <div class="services-c"><a href="javascript:;">合作招商</a></div>
+                                <div class="services-c"><a href="javascript:;">学习中心</a></div>
+                                <div class="services-c"><a href="javascript:;">商家后台</a></div>
+                                <div class="services-c"><a href="javascript:;">京麦工作台</a></div>
+                                <div class="services-c"><a href="javascript:;">商家帮助</a></div>
+                                <div class="services-c"><a href="javascript:;">规划平台</a></div>
+                            </div>    
                         </li>
                         <li class="spacer"></li>
-                        <li>
-                            <a href="javascript:;">网站导航</a>
-                            <i class="iconfont" style="font-size:10px">&#xe629;</i>    
+                        <li class="webnav" id="webnav">
+                            <div class="webnav-font" id="webnav-font">
+                                <!-- <a href="javascript:;"> -->网站导航<!-- </a> -->
+                                <i class="iconfont" style="font-size:10px">&#xe629;</i> 
+                            </div>
+                            <div class="webnav-case" id="webnav-case">
+                                <dl class="webnav-channel1">
+                                    <dt>特色主题</dt>
+                                    <dd>
+                                        <a href="javascript:;">京东试用</a>
+                                        <a href="javascript:;">京东金融</a>
+                                        <a href="javascript:;">全球售</a>
+                                        <a href="javascript:;">国际站</a>
+                                        <a href="javascript:;">京东会员</a>
+                                        <a href="javascript:;">京东预售</a>
+                                        <a href="javascript:;">买什么</a>
+                                        <a href="javascript:;">俄语站</a>
+                                        <a href="javascript:;">装机大师</a>
+                                        <a href="javascript:;">0元评测</a>
+                                        <a href="javascript:;">定期送</a>
+                                        <a href="javascript:;">港澳售</a>
+                                        <a href="javascript:;">优惠券</a>
+                                        <a href="javascript:;">秒杀</a>
+                                        <a href="javascript:;">闪购</a>
+                                        <a href="javascript:;">印尼站</a>
+                                        <a href="javascript:;">京东金融科技</a>
+                                        <a href="javascript:;">ln货推荐</a>
+                                        <a href="javascript:;">陪伴计划</a>
+                                        <a href="javascript:;">出海招商</a>
+                                    </dd>
+                                </dl>
+                                <dl class="webnav-channel2">
+                                    <dt></dt>
+                                    <dd></dd>
+                                </dl>
+                                <dl class="webnav-channel3">
+                                    <dt></dt>
+                                    <dd></dd>
+                                </dl>
+                                <dl class="webnav-channel4">
+                                    <dt></dt>
+                                    <dd></dd>
+                                </dl>
+                            </div>   
                         </li>
                         <li class="spacer"></li>
-                        <li>
-                            <a href="javascript:;">手机京东</a>
+                        <li class="mobile-jd">
+                            <div class="mobile-jd-font">
+                                <a href="javascript:;">手机京东</a>
+                            </div>
+                            
                         </li>
                     </ul>
                 </div>

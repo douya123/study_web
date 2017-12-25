@@ -25,8 +25,27 @@
         min-width: 990px; max-width: 1190px;
     }
 /* common */
+    /* 鼠标移动到这上面的时候的效果 */
+    .active {
+        background-color: #fff;
+        border: 1px solid #ccc!important;
+        border-bottom:2px solid #fff!important;
+        z-index: 101;
+    }
+    .dd {
+        display: none!important;
+    }
+    [class*=-font1] {
+        height: 28px;
+        padding: 0 7px;
+        border: 1px solid #e3e4e5;
+    }
+    [class*=-case] {
+        box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+    }
 /* topnav */
     #topnav {
+        z-index: 999;
         width: 100%;
         height: 30px;
         line-height: 30px;
@@ -41,24 +60,32 @@
             /* background: red; */
         }
         .area {
+            position: relative;
+            border: 1px solid transparent;
             width: 57.56px;
             margin-left: 200px;
         
         }
         .area-font {
+            position: relative;
             height: 28px;
             line-height: 28px;
             border: 1px solid #e3e4e5;
             padding: 0 7px;
         }
         .area-case {
-            z-index: 900;
+            z-index: 100;
             position: absolute;
+            top: 30px;
+            left: 0;
             width: 300px;
             padding: 10px;
             line-height: 24px;
-            background-color: white;
+            background-color: #fff;
             display: none;
+            border: 1px solid #ccc;
+            
+            
         }
         .area-item {
             float: left;
@@ -76,18 +103,133 @@
             background-color: red;
         }
 
-    #topnav ul.topnav-right {
-        float: right;
-    }
-    #topnav ul.topnav-right li {
-        display: inline-block;
-    }
-    #topnav li.spacer {
-        width: 1px;
-        height: 10px;
-        margin: 11px 5px 0 5px;
-        background-color: #ccc;
-    }
+    /* right */
+        #topnav ul.topnav-right {
+            float: right;
+        }
+        #topnav ul.topnav-right li {
+            display: inline-block;
+        }
+        #topnav li.spacer {
+            width: 1px;
+            height: 10px;
+            margin: 11px 5px 0 5px;
+            background-color: #ccc;
+        }
+        .mobile-jd-font {
+            position: relative;
+            height: 28px;
+            padding: 0 7px;
+            border: 1px solid #e3e4e5;
+        }
+        /* user */
+            .user-case {
+                display: none;
+                z-index: 100;
+                position: absolute;
+                top: 30px;
+                /* left: 0; */
+                background-color: #fff;
+                width: 280px;
+                line-height: 24px;
+                border: 1px solid #ccc;
+                
+            }
+            .user-top {
+                /* min-height: 24px; */
+                padding: 10px 0 10px 15px;
+                overflow: hidden;
+            }
+            .user-bottom {
+                padding: 10px 0 10px 15px;
+                overflow: hidden;
+                border-top: 1px solid #f1f1f1;
+            }
+            .user-left {
+                float: left;
+                width: 126px;
+                /* background-color: green; */
+            }
+            .user-right {
+                float: right;;
+                width: 126px;
+                /* background-color: blue; */
+            }
+            .user-font {
+                padding: 0 7px;
+                position: relative;
+                height: 28px;
+                border: 1px solid #e3e4e5;
+            }
+        /* services */
+            .services-case {
+                position: absolute; 
+                top: 30px; 
+                right: 0;
+                width: 170px;
+                padding: 10px 0;
+                line-height: 24px;
+                background-color: #fff;
+                z-index: 100;
+                border: 1px solid #ccc;
+                display: none;
+            }
+            .services-c {
+                float: left;
+                width: 70px;
+                /* display: inline-block; */
+                padding-left: 15px;
+            }
+            .services-t {
+                float: left;
+                width: 140px;
+                font-weight: 700;
+                /* display: inline-block; */
+                padding-left: 15px; clear: both;
+            }
+            .services {
+                /* 这个class是为了定位二级菜单右对齐而设置的 */
+                position: relative;
+            }
+            .services-font {
+                position: relative;
+                /* 为什么这里要和上面services一起双重的position：relative才能把中间的白线去掉？ */
+                height: 28px;
+                padding: 0 7px;
+                border: 1px solid #e3e4e5;
+            }
+
+        /* webnav */
+            .webnav-case {
+                display: none;
+                z-index: 100;
+                position: absolute;
+                top: 30px; 
+                right: 1px;
+                width: 1188px;
+                line-height: 24px;
+                background-color: #fff;
+                padding: 15px 0;
+                border: 1px solid #ccc;
+            }
+            .webnav-channel1 {
+                width: 340px;
+                float: left;
+                padding-left: 20px;
+                border-right: 1px solid #ccc;
+            }
+            .webnav-channel1 a {
+                width: 85px;
+                float: left;
+            }
+            .webnav-font {
+                position: relative;
+                height: 28px;
+                padding: 0 7px;
+                border: 1px solid #e3e4e5;
+            }
+
+
 
 /* header */
     #header {
@@ -111,7 +253,7 @@
             height: 60px;
             background-color: rgba(0, 0, 0, 0.2);
         }
-    /* .shoppingcart */
+    /* shoppingcart */
         .shoppingcart {
             position: absolute;
             top: 25px; right: 99px; bottom: 80px; left: 901px;
@@ -307,7 +449,7 @@
         background-color: rgba(0, 0, 0, 0.2);
         
     }
-/*  */
+
 /*  */
 
 
