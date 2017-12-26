@@ -12,12 +12,14 @@
         color: #666;
     }
     a {
-        color: #666;
+        /* color: #666; */
         text-decoration: none;
     }
-    a:hover {
-        color: red;
-    }
+    /* 
+        a:hover {
+            color: red;
+        } 
+    */
 
     .w {
         position: relative;
@@ -32,6 +34,10 @@
         border-bottom:2px solid #fff!important;
         z-index: 101;
     }
+    .active1 {
+        background-color: red;
+        color: white!important;
+    }
     .dd {
         display: none!important;
     }
@@ -43,6 +49,9 @@
     [class*=-case] {
         box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
     }
+    [class*=display-none] {
+        display: none;
+    }
 /* topnav */
     #topnav {
         z-index: 999;
@@ -51,6 +60,12 @@
         line-height: 30px;
         background-color: #e3e4e5;
         border-bottom: 1px solid #ddd;
+    }
+    #topnav a {
+        color: #666;
+    }
+    #topnav a:hover {
+        color: red;
     }
     /* left */
         .topnav-left  {
@@ -84,8 +99,6 @@
             background-color: #fff;
             display: none;
             border: 1px solid #ccc;
-            
-            
         }
         .area-item {
             float: left;
@@ -100,7 +113,11 @@
         }
         .area-item a:hover {
             color: white;
-            background-color: red;
+            background-color: #ddd;
+        }
+        .a-active1 {
+            color: white!important;
+            background-color: red!important;
         }
 
     /* right */
@@ -236,6 +253,12 @@
         width: 100%;
         height: 140px;
     } 
+    #header a {
+        color: #666;
+    }
+    #header a:hover {
+        color: red;
+    }
     /* logo */
         .logo {
             position: absolute;
@@ -326,33 +349,91 @@
         position: relative;
         
     } */
-    .focus-1 {
+    .fs-leftnav {
         float: left;
         width: 190px;
         height: 480px;
         margin-right: 10px;
         /* background-color: red; */
     }
-        .focus-1-w {
+        .fs-leftnav-w {
             position: relative;
             width: 190px;
             height: 480px;
             background-color: white;
         }
-        .focus-11 {
+        .fs-leftnav1 {
             width: 190px;
             height: 450px;
             padding: 15px 0; 
         }
-        .focus-11 li {
+        .fs-leftnav1 li {
             font-size: 14px;
             line-height: 28px;
             padding-left: 20px;
-        }
-        .focus-11 li a {
-            cursor: pointer;
             color: #333;
         }
+        .fs-leftnav1 li a {
+            cursor: pointer;
+        }
+        /* fs-common */
+            /* tip */
+                .tip {
+                    margin-left: 20px;
+                }
+                .tip a {
+                    /* display: block; float: left; */  /* 这里这样写还不行，下面的float会全部的跟上来！！！ */
+                    display: inline-block;
+                    height: 24px; line-height: 24px;
+                    color: white; background-color: #333;
+                    margin-right: 10px; padding: 0 10px;
+                }
+                .tip a:hover {
+                    background-color: #666;
+                }
+
+            /* list */
+                .list {
+                    position: relative;
+                    padding-left: 80px;
+                }
+                .list dt {
+                    position: absolute;
+                    left: 0; 
+                    top: 9px;
+                    width: 70px;
+                    text-align: right;
+                    font-weight: 700;
+                    white-space: nowrap;
+                    display: block;
+                    /* font-size: 14px; */
+                }
+                .list dd {
+                    overflow: hidden;
+                    padding: 6px 0;
+                    border-bottom: 1px solid #e0e0e0;
+                }
+                .list dd a {
+                    position: relative;
+                    float: left;
+                    margin: 4px 0;
+                    padding: 0 10px;
+                    height: 16px; line-height: 16px;
+                    border-left: 1px solid #e0e0e0;
+                    white-space: nowrap;
+                    color: #666;
+                    display: block;
+                }
+                .list dd a:hover {
+                    color: red;
+                }
+                /* 选择list属性中的最后一个list属性中的dd的下边框线为空 */
+                .list:last-child dd {
+                    border-bottom: none;
+                }
+                .list a {
+                    color: #666;
+                }
         /* menu */
             .menu-w {
                 position: absolute;
@@ -360,7 +441,7 @@
                 width: 998px;
                 min-height: 478px;
                 border: 1px solid #f7f7f7;
-                background-color: yellow;
+                background-color: #f7f7f7;
             }
             .menu-left {
                 float: left;
@@ -368,32 +449,13 @@
                 width: 800px;
                 padding: 20px 0 10px;
             }
-                .menu-intop {
-                    margin-left: 20px;
-                }
-                .television {
-                    margin-left: 20px;
-                }
-                .television dt {
-                    float: left;
-                    text-align: right;
-                    width: 70px; 
-                }
-                .television dd {
-                    
-                }
-                .television dd a {
-                    display: inline-block;
-                    border-left: 1px solid #ccc;
-                    padding: 0 10px;
-                }
             .menu-right {
                 float: right;
                 /* height: 400px;background-color: red; */
                 width: 198px;
                 padding: 20px 0 10px;
             }
-            .menu-left-one {
+            /*             .menu-left-one {
                 display: inline-block;
                 height: 24px;
                 line-height: 24px;
@@ -401,7 +463,7 @@
                 padding: 0 10px;
                 margin-right: 10px;
                 background-color: #333;
-            }
+            } */
     .focus-2 {
         float: left;
         width: 590px;
