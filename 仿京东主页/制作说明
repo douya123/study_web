@@ -42,6 +42,9 @@
                     border-bottom: none;
                 }
     10.js中children的使用还不懂    和childnodes的区别又是什么？
+            childnodes 的话会把所有类型的子节点都选出来，而children的话只选出了html元素节点。操作元素的话就children要方便很多，childnode是还有去判断节点nodetype；
+    11.如果直接设置变量，然后赋值里加了innerhtml，可以读取，但是不能修改，我遇到几次都是是这样，解决的方法就是不要直接给变量赋innerhtml，在后边改变的时候分开写；
+    12.要获取a标签里的innerhtml的话，我使用children来获取的，直接children的话显示的是htmlco--什么，我忘了后边的单词怎么写了，要获取里边的元素要用children[0].innerhtml；
 
 自己的一些问题：
     1.我不知道什么时候用a, li, ul, dl  这几个都可以排列做列表菜单，但是我经常搞不懂要用哪个好
