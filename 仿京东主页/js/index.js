@@ -4,7 +4,7 @@ window.onload = function () {
         var oBtnArea = document.getElementById('area');
         var oArea = document.getElementById('area-case');
         var oFont = document.getElementById('area-font');
-        var oTrans;  //这个是公用的用来储存临时的class的变量
+        var oTrans = "";  //这个是公用的用来储存临时的class的变量
         // var oTrans = oFont.className;
         var oTrans1 = oFont.className;
         oBtnArea.onmouseover = function () {
@@ -112,12 +112,22 @@ window.onload = function () {
                 if (this.nextElementSibling) {
                     oTrans = this.nextElementSibling.className;
                 } else {
-                    oTrans = this.previousElementSibling.className;
+                    /* 
+                        以后再进一步的思考这里
+                        为了解决ie8，写一个判断来试试 ：嗯，这样写解决了ie7/8 的不能点击的问题， 嗯ie6是完全不兼容 
+                    */
+                    if (this.previousElementSibling) {
+                        oTrans = this.previousElementSibling.className;
+                    } else {
+                        oTrans = "";
+                    }
+                    
+                    /* 下边是原来的 */
+                    // oTrans = this.previousElementSibling.className;
                 }
                     for (var i = 0; i < aLeftNav.length; i++) {
                         aMenuW[i].style.display = 'none';
                     }
-                // alert(oTrans);
                 this.className = oTrans + ' active1';
                 oMenuW.style.display = 'block';
                 aMenuW[this.index].style.display = 'block';
