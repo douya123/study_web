@@ -153,38 +153,144 @@ window.onload = function () {
             // // alert(oTrans);
             // oLeftNav[i].onmouseout = function () {
             //     this.className = oTrans;
-            // }
-           
-            
+            // }   
         }
+
+        /* 要删掉的 */
+            // alert(aMenuW.length);
+            // for (var i = 0; i < aLeftNav.length; i++) {
+            //     aLeftNav[i].index = i;
+            //     oTrans = aLeftNav[0].className;
+            //     aLeftNav[i].onmouseover = function () {
+            //         for (var i = 0; i < aLeftNav.length; i++) {
+            //             aLeftNav[i].className = oTrans;
+            //             aMenuW[i].style.display = 'none';
+            //         }
+            //         this.className = oTrans + ' active1';
+            //         oMenuW.style.display = 'block';
+            //         aMenuW[this.index].style.display = 'block';
+            //     }
+            //     oLeftNav.onmouseout = function () {
+            //         aLeftNav[i].className = oTrans;
+            //         oMenuW.style.display = 'none';
+            //     }
+            //     aMenuW[i].onmouseover = function () {
+            //         this.style.display = 'block';
+            //     }
+            //     // aMenuW[i].onmouseout = function () {
+            //     //     this.style.display = 'none';
+            //     // }
+            // }
+            // // for (var i = 0; i < aLeftNav.length; i++) {
+                
+            // // }
         
-        // alert(aMenuW.length);
-        // for (var i = 0; i < aLeftNav.length; i++) {
-        //     aLeftNav[i].index = i;
-        //     oTrans = aLeftNav[0].className;
-        //     aLeftNav[i].onmouseover = function () {
-        //         for (var i = 0; i < aLeftNav.length; i++) {
-        //             aLeftNav[i].className = oTrans;
-        //             aMenuW[i].style.display = 'none';
-        //         }
-        //         this.className = oTrans + ' active1';
-        //         oMenuW.style.display = 'block';
-        //         aMenuW[this.index].style.display = 'block';
-        //     }
-        //     oLeftNav.onmouseout = function () {
-        //         aLeftNav[i].className = oTrans;
-        //         oMenuW.style.display = 'none';
-        //     }
-        //     aMenuW[i].onmouseover = function () {
-        //         this.style.display = 'block';
-        //     }
-        //     // aMenuW[i].onmouseout = function () {
-        //     //     this.style.display = 'none';
-        //     // }
-        // }
-        // // for (var i = 0; i < aLeftNav.length; i++) {
-            
-        // // }
+
+    /* fs里面轮播的js */
+        var oSlideshowPhoto = document.getElementById('slideshow-photo');
+        var aSlideshowPhoto = oSlideshowPhoto.getElementsByTagName('li');
+        var oIndicator = document.getElementById('slideshow-indicator');
+        var aIndicator = oIndicator.getElementsByTagName('i');
+        var oBtnPrew = document.getElementById('slideshow-prew');
+        var oBtnNext = document.getElementById('slideshow-next');
+        var n = aIndicator.length;
+        var j = 0;
+        var timer1;
+        var k;
+        // var k = 0;
+        for (var i = 0; i < aIndicator.length; i++) { 
+            aIndicator[i].index = i;
+            aSlideshowPhoto[i].index = i;
+            aIndicator[i].onmouseover = function () {
+                // var j = k;
+                for (var i = 0; i < aIndicator.length; i++) {
+                    aIndicator[i].className = '';
+                    aSlideshowPhoto[i].className = '';
+                }
+                this.className = 'indicator';
+                aSlideshowPhoto[this.index].className = 'appear';
+                j = this.index;
+            }
+            oBtnNext.onclick = function () {
+                for (var i = 0; i < aIndicator.length; i++) {
+                    aIndicator[i].className = '';
+                    aSlideshowPhoto[i].className = '';
+                }
+                aIndicator[j+1].className = 'indicator';
+                aSlideshowPhoto[j+1].className = 'appear';
+                if (j < n-2) {
+                    j++;
+                } else {
+                    j = -1;
+                }
+                return j; 
+            }
+            oBtnPrew.onclick = function () {
+                // alert(k);
+                // var j = k;
+                for (var i = 0; i < aIndicator.length; i++) {
+                    aIndicator[i].className = '';
+                    aSlideshowPhoto[i].className = '';
+                } 
+                if (j > 0) {
+                    j--;
+                } else {
+                    j = n - 1;
+                }
+                aIndicator[j].className = 'indicator';
+                aSlideshowPhoto[j].className = 'appear';
+                return j;
+            }
+            oBtnNext.onmouseover = oBtnPrew.onmouseover = function () {
+                oBtnPrew.style.display = 'block';
+                oBtnNext.style.display = 'block';
+                this.style.backgroundColor = 'blue';
+                this.style.backgroundColor = 'blue';
+            }
+            oBtnNext.onmouseout = oBtnPrew.onmouseout = function () {
+                this.style.backgroundColor = 'red';
+                this.style.backgroundColor = 'red';
+            }
+            aSlideshowPhoto[i].onmouseenter = aIndicator[i].onmouseenter = function() {
+                k = 1;
+                oBtnPrew.style.display = 'block';
+                oBtnNext.style.display = 'block';
+            }   
+            aSlideshowPhoto[i].onmouseout = aIndicator[i].onmouseout = function() {
+                // 1.当document.onmousemove的时候其实是没有产生新的k的，而是使用的这里传出的k
+                k = 2;
+                oBtnPrew.style.display = 'none';
+                oBtnNext.style.display = 'none';
+            }
+            // if (k == 1) {
+            //     oBtnPrew.style.display = 'block';
+            //     oBtnNext.style.display = 'block';
+            // } else if (k == 2) {
+            //     oBtnPrew.style.display = 'none';
+            //     oBtnNext.style.display = 'none';
+            // }          
+        } 
+        /* 一定要放在循环外边 */
+        
+        timer1 = setInterval(oBtnNext.onclick,2000);
+        document.onmousemove = function () {
+            console.log(k);
+            if (k == 1) {
+                clearInterval(timer1);
+            } else if (k == 2) {
+                k++;    // k + 1 让它不在进入这个if语句
+                if (k == 3) {
+                    clearInterval(timer1);
+                    timer1 = setInterval(oBtnNext.onclick,2000);
+                }
+                // alert(k);
+                // 2.所以在这里的时候k就已经变为3了，不会进入这个循环了，而只有当重新进入aSlideshowPhoto[i].onmouseout的时候，才会产生k=2；
+            } 
+        }
+        /* 轮播的淡入淡出还没有做，就是js的运动部分 */
+        
+        
+        
         
         
 
