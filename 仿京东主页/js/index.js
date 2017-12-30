@@ -78,7 +78,6 @@ window.onload = function () {
         oBtnServices.onmouseout = function () {
             oServices.style.display = 'none';
             oServicesFont.className = oTrans;
-            
         }
     
 
@@ -95,8 +94,26 @@ window.onload = function () {
             oWebnav.style.display = 'none';
             oWebnavFont.className = oTrans;
         }
-        
+     
+    /* 我的购物车 */
+        var oShoppingcart = document.getElementById('shoppingcart');
+        var oShoppingcartW = document.getElementById('shoppingcart-w');
+        var oShoppingcartCase = document.getElementById('shoppingcart-case');
+        oShoppingcart.onmouseover = function () {
+            oShoppingcartW.style.borderTop = '1px solid #ccc';
+            oShoppingcartW.style.borderLeft = '1px solid #ccc';
+            oShoppingcartW.style.borderRight = '1px solid #ccc';
+            oShoppingcartW.style.borderBottom = '1px solid #fff';
+            oShoppingcartW.style.zIndex = '5';
+            oShoppingcartCase.style.display = 'block';
+            // oShoppingcartW.style.backgroundColor = 'blue';
+        }
+        oShoppingcart.onmouseout = function () {
+            oShoppingcartCase.style.display = 'none';
+            oShoppingcartW.style.border = '1px solid #e3e4e5';
 
+            
+        }
     /* 聚焦中关于导航的js */
         var oLeftNav = document.getElementById('fs-leftnav1');
         var aLeftNav = oLeftNav.getElementsByTagName('li');
@@ -216,13 +233,18 @@ window.onload = function () {
                     aIndicator[i].className = '';
                     aSlideshowPhoto[i].className = '';
                 }
-                aIndicator[j+1].className = 'indicator';
-                aSlideshowPhoto[j+1].className = 'appear';
-                if (j < n-2) {
+                if (j < n - 1) {
                     j++;
                 } else {
-                    j = -1;
+                    j = 0;
                 }
+                aIndicator[j].className = 'indicator';
+                aSlideshowPhoto[j].className = 'appear';
+                // if (j < n-2) {
+                //     j++;
+                // } else {
+                //     j = -1;
+                // }
                 return j; 
             }
             oBtnPrew.onclick = function () {
@@ -246,8 +268,11 @@ window.onload = function () {
                 oBtnNext.style.display = 'block';
                 this.style.backgroundColor = 'blue';
                 this.style.backgroundColor = 'blue';
+                k = 1;
             }
             oBtnNext.onmouseout = oBtnPrew.onmouseout = function () {
+                oBtnPrew.style.display = 'none';
+                oBtnNext.style.display = 'none';
                 this.style.backgroundColor = 'red';
                 this.style.backgroundColor = 'red';
             }
@@ -289,7 +314,23 @@ window.onload = function () {
         }
         /* 轮播的淡入淡出还没有做，就是js的运动部分 */
         
-        
+    /* fs里的公告选项卡效果 */
+        var oSales = document.getElementById('sales');
+        var oDeclare = document.getElementById('declare');
+        var oSalesF = document.getElementById('sales-f');
+        var oDeclareF = document.getElementById('declare-f');
+        var oNoticeRed = document.getElementById('notice-red');
+        oSales.onmouseover = function () {
+            oSalesF.style.display = 'block';
+            oDeclareF.style.display = 'none';    
+            oNoticeRed.style.transform = '';         
+            /* transform其实可以用js的运动来写，兼容性可能就好很多 */          
+        }
+        oDeclare.onmouseover = function () {
+            oDeclareF.style.display = 'block';
+            oSalesF.style.display = 'none';  
+            oNoticeRed.style.transform = 'translateX(59px)';                   
+        }
         
         
         
