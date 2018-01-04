@@ -299,7 +299,7 @@ window.onload = function () {
         
         timer1 = setInterval(oBtnNext.onclick,2000);
         document.onmousemove = function () {
-            console.log(k);
+            // console.log(k);
             if (k == 1) {
                 clearInterval(timer1);
             } else if (k == 2) {
@@ -330,15 +330,129 @@ window.onload = function () {
             oDeclareF.style.display = 'block';
             oSalesF.style.display = 'none';  
             oNoticeRed.style.transform = 'translateX(59px)';                   
+        }  
+    /* floor里的计时器 */
+        // var sy, sm, sd, sh, smin, ss;
+        // sy = 2018; sm = 1; sd = 3; sh = 23; smin = 44; ss = 5;
+        // sm = _t2(sm);sd = _t2(sd);sh = _t2(sh);smim = _t2(smin);ss = _t2(ss);
+        // var settime = sy + "/" + sm + "/" + sd + "/," + sh + ":" + smin + ":" + ss;
+        // var endTime = new Date(settime);
+        // var aCont = new Array();
+        var hour = document.getElementById('h');
+        var minute = document.getElementById('m');
+        var second = document.getElementById('s');
+        var sy, sm, sd, sh, smin, ss;
+        sy = 2018; sm = 1; sd = 4; sh = 0; smin = 0; ss = 5;
+        function t() {
+            sm = _t2(parseInt(sm));sd = _t2(parseInt(sd));sh = _t2(parseInt(sh));smim = _t2(parseInt(smin));ss = _t2(parseInt(ss));
+            var settime = sy + "/" + sm + "/" + sd + "/," + sh + ":" + smin + ":" + ss;
+            var endTime = new Date(settime);
+            // var aCont = new Array();
+            var d, h, m, s;
+            var nowTime = new Date();
+            var x = endTime - nowTime;
+            if ( x > 0) {
+                d = Math.floor(x/1000/60/60/24);    //这里是相差的天数
+                h = Math.floor(x/1000/60/60%24);    //这里是相差的小时
+                m = Math.floor(x/1000/60%60);       //这里是相差的分钟数
+                s = Math.floor(x/1000%60);          //这里是相差的秒数
+                d = _t2(d); h = _t2(h); m = _t2(m); s = _t2(s);
+                // aCont[0] = d; aCont[1] = h; aCont[2] = m; aCont[0] = s;
+                /* 这里让它返回出数组 */
+                hour.innerHTML = h;
+                minute.innerHTML = m;
+                second.innerHTML = s;
+                // return aCont;
+            } else {
+                /* 这里加载的速度还是太慢，要从天数开始加，不然小时的花要加12次，大大的拖慢了计时器加载的速度 */
+                /* 重新写计算的顺序，减少加载时间 */
+                sy = parseInt(nowTime.getFullYear());
+                sd = parseInt(nowTime.getDay());
+                sh = parseInt(sh);
+                if ((sh + 2) > 24 ) {
+                    sh = 0;
+                    sd++;
+                    if (sd > 365) {
+                        sd = 0;
+                        sy++;
+                    }
+                } else {
+                    sh = sh + 2;
+                }
+                /* 获取当前的天数 */
+                // sd = parseInt(nowTime.getDay());
+                // sh = parseInt(sh) + 2;
+                // if (sh > 24) {
+                //     sh = 0;
+                //     sd = parseInt(sd) + 1;
+                //     aCont[0] = sh;
+                //     aCont[1] = sd;
+                //     if (sd > 365) {
+                //         sd = 0;
+                //         parseInt(sy) + 1;
+                //         aCont[1] = sd;
+                //         aCont[2] = sy;
+                //     }
+                // } else {
+                //     aCont[0] = sh;
+                // }
+            }           
         }
-        
-        
+        /* 之后要解决时间加载太慢的问题 */
+        t();
+        setInterval(function() {
+            t();
+            /* 这是之前错误的一种想法，有时间再整理到错题集里 */
+            // /* 判断并赋值 */
+            // if ( typeof t()[2] === "number") {
+            //     alert("y:" + t()[2])
+                
+            //     sy = t()[2];
+            // } else if ( typeof t()[1] === "number") {
+            //     alert("d:" + t()[1])
+            //     sd = t()[1];
+            // } else if ( typeof t()[0] === "number") {
+            //     alert("h:" + t()[0])
+            //     sh = t()[0];
+            //     alert(sh)
+            // }
+            // alert("小时" + sh)
+            // alert("天数" + sd)
+        },1000);
+            
+        // if ( h == 00 && m == 00 && s == 00 ) {
+        //     alert("抢购完毕，期待下轮");
+        // }
+    /* 倒计时那里的切换图片 */
+        var oJd1_2_point = document.getElementById('jd-1_2pointer');
+        var aJd1_2_point = oJd1_2_point.getElementsByTagName('i');
+        var oJd1_2_photo = document.getElementById('jd-1_2-photo');
+        var aJd1_2_photo = oJd1_2_photo.getElementsByTagName('a');
+        _tabControl(aJd1_2_point, aJd1_2_photo, " active2");
+        /* 这一段是测试那个函数正确没有的 */
+        // for (var i=0; i<aJd1_2_point.length; i++) {
+        //     aJd1_2_point[i].style.backgroundColor = 'red';
+        //     aJd1_2_point[i].onmouseenter = function () {
+        //         this.backgroundColor = 'red';
+        //     }
+        // }
+    /*  */
+    /*  */
         
 
 
     
 
 }
+
+/* t2（）是把小于10的数字变为字符串并且补0 */
+    function _t2(tn) {
+        if (tn < 10) {
+            return "0" + tn;
+        } else {
+            return "" + tn;
+        }
+    }
 
 /* 获取非行间样式 */
     function getStyle(obj, attr, value) {
@@ -352,3 +466,39 @@ window.onload = function () {
             obj.style[attr]= value; 
         }
     }
+/* 试着自己写一个选项卡的js, 卧槽竟然写成功了，可以解决一些选项卡的重复类容了 */
+    /* aTitle表示的是标题所在的列表，aContent表示的是内容的列表，classname表示的是标题列表的样式 */
+function _tabControl(aTitle, aContent, classN) {
+    var oTrans = "";
+    for (var i=0; i<aTitle.length; i++) {
+        aTitle[i].index = i;
+        aContent[i].index = i;
+        aTitle[i].onmouseenter = function () {
+            if (oTrans !== oTrans) {
+                if (this.nextElementSibling) {
+                    oTrans = this.nextElementSibling.className;
+                } else {
+                    /* 
+                        以后再进一步的思考这里
+                        为了解决ie8，写一个判断来试试 ：嗯，这样写解决了ie7/8 的不能点击的问题， 嗯ie6是完全不兼容 
+                    */
+                    if (this.previousElementSibling) {
+                        oTrans = this.previousElementSibling.className;
+                    } else {
+                        oTrans = "";
+                    }
+                }
+            } else {
+                for (var i=0; i<aTitle.length; i++) {
+                    aTitle[i].className = oTrans;
+                    aContent[i].style.display = "none";
+                }
+                // this.className = temclassT + "'" + "" + className + "'";
+                this.className = oTrans + classN;
+                aContent[this.index].style.display = "block";
+            }
+        }
+    }
+}
+/*  */
+/*  */

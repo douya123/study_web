@@ -40,6 +40,9 @@
         background-color: red;
         color: white!important;
     }
+    .active2 {
+        background-color: red!important;
+    }
     .dd {
         display: none!important;
     }
@@ -414,7 +417,7 @@
             float: left;
         }
         .header-nav ul {
-            float: left;
+            /* float: left; */
             display: inline-block;
         }
         .header-nav ul li {
@@ -872,33 +875,254 @@
                 /* z-index: 1; */
             }
 /* floors */
-    .jd-ko {
-        width: 100%;
-        height: 275px;
-        background-color: rgba(0, 0, 0, 0.2);
-    }
-    .j-1 {
-        width: 100%;
-        height: 480px;
-        background-color: rgba(0, 0, 0, 0.4);
-        
-    }
-    .j-2 {
-        width: 100%;
-        height: 480px;
-        background-color: rgba(0, 0, 0, 0.5);
-        
-    }
-    .j-3 {
-        width: 100%;
-        height: 1505px;
-    }
-    .j-4 {
-        width: 100%;
-        height: 1025px;
-        background-color: rgba(0, 0, 0, 0.2);
-        
-    }
+    /* jd-1 */
+        .jd-1 {
+            width: 100%;
+            /* height: 275px; */
+            background-color: #eee;
+            margin-bottom: 30px;
+        }
+        .jd-1-w {
+            margin: 0 auto;
+            width: 1190px;
+            height: 275px;
+        }
+        /* timer */
+            .timer {
+                float: left;
+                width: 190px;
+                height: 275px;
+                background-color: #e83632;
+            }
+            .timer-w {
+                position: relative;
+                display: block;
+                width: 190px;
+                height: 275px;
+                color: #fff; 
+                /* padding-top: 42px; */
+            }
+            .timer-w h5 {
+                position: absolute;
+                display: block;
+                top: 42px;
+                width: 100%;
+                height: 51px;
+                line-height: 51px;
+                text-align: center;
+                font-size: 34px;
+                font-weight: normal;
+                /* font-family:  */
+            }
+            .timer-w h6 {
+                position: absolute;
+                display: block;
+                top: 90px;
+                width: 100%;
+                height: 30px;
+                line-height: 30px;
+                font-size: 20px;
+                font-weight: normal;
+                text-align: center;
+                color: rgba(255, 255, 255, 0.5);
+            }
+            .timer-w i {
+                display: block;
+                position: absolute;
+                top: 126px;
+                left: 86px;
+                width: 20px;
+                height: 33px;
+                background: rgba(0, 0, 0, 0.2);
+                overflow: hidden;
+            }
+            .timer-w p {
+                position: absolute;
+                display: block;
+                top: 170px;
+                width: 100%;
+                height: 24px;
+                text-align: center;
+                line-height: 24px;
+                font-size: 16px;
+            }
+            .timer-w div {
+                position: absolute;
+                top: 212px;
+                left: 30px;
+                overflow: hidden;
+            }
+            .timer-w div span {
+                float: left;
+                width: 40px;
+                height: 40px;
+                background-color: #2f3430;
+                margin-right: 5px;
+                text-align: center;
+            }
+            .timer-w div span::before {
+                content: "";
+                position:absolute;
+                left: 0;
+                top: 50%;
+                width: 100%;
+                height: 1px;
+                background-color: #e83632;
+            }
+            .timer-w div span b {
+                text-align: center;
+                display: inline;
+                position: relative;
+                line-height: 40px;
+                font-size: 20px;
+                font-weight: bold;
+                color: #fff;
+            }
+        /* jd-1_1 */
+            .jd-1_1 {
+                position: relative;
+                float: left;
+                width: 799px;
+                height: 275px;
+                /* background: blue; */
+                overflow: hidden;
+            }
+            .jd-1_1-w {
+                position: absolute;
+                left: 0; top: 0;
+                height: 275px;
+                width: 5593px;
+            }
+            .jd-1_1-w div.th1 {
+                position: relative;
+                float: left; 
+                width: 199.75px;
+                height: 275px;
+                text-align: center;
+                background-color: #fff;
+                
+            }
+            
+            .jd-1_1-w div.th1 a {
+                position: relative;
+                display: block;
+                text-align: center;
+                width: 190px; height: 275px;
+                margin: 0 auto;
+            }
+            .jd-1_1-w div.th1::after {
+                content: "";
+                position: absolute;
+                top: 0; right: 0;
+                display: block;
+                width: 1px;
+                height: 275px;
+                background-color: #f0f0f0;
+            }
+            .jd-1_1-w div.th1 a img {
+                display: block;
+                position: absolute;
+                top: 40px; 
+                left: 50%;
+                width: 140px; height: 140px;
+                margin-left: -70px;
+            }
+            .jd-1_1-w div.th1 a i {
+                position: absolute;
+                top: 190px; left: 0;
+                width: 160px;
+                height: 30px; line-height: 30px; 
+                padding: 0 15px;
+                white-space: nowrap;
+                color: #666;
+                display: inline-block;
+                font-style: normal;
+                overflow: hidden;
+            }
+            #price {
+                position: absolute;
+                top: 230px; left: 15px;
+                width: 160px; height: 20px;
+                padding: 1px;
+                background-color: #e6382f;
+            }
+            #price .pricebox1 {
+                display: block; float: left;
+                width: 80px; height: 20; line-height: 20px;
+                text-align: center;
+                font-size: 14px; font-weight: bold;
+                color: #fff;
+            }
+            #price .pricebox2 {
+                display: block; float: left;
+                width: 80px; height: 20; line-height: 20px;
+                text-align: center;
+                font-size: 12px;
+                color: #b7bcb8;
+                background-color: #fff;
+                
+            }
+        /* jd-1_2 */            
+            .jd-1_2 {
+                position: relative;
+                float: right;
+                width: 180px;
+                height: 260px;
+                /* background: yellow; */
+                border-left: 1px solid #f0f0f0 ;
+                background-color: #fff;
+                padding: 8px 10px 7px;
+                overflow: hidden;
+            }
+            .jd-1_2pointer {
+                z-index: 2;
+                position: absolute;
+                left: 50%;
+                bottom: 16px;
+                overflow: hidden;
+                margin-left: -10px;
+            }
+            .jd-1_2pointer i {
+                display: block; float: left;
+                width: 6px;height: 6px; border-radius: 50%;
+                background-color: gray;
+                margin: 4px;
+                cursor: pointer;
+            }
+            .jd-1_2-photo {
+                position: relative;
+                width: 180px;
+                height: 260px;
+                overflow: hidden;
+            }
+            .jd-1_2-photo div a {
+                display: none;
+                width: 100%;height: 100%;
+            }
+
+    /* jd-2 */
+        .j-1 {
+            width: 100%;
+            height: 480px;
+            background-color: rgba(0, 0, 0, 0.4);
+            
+        }
+        .j-2 {
+            width: 100%;
+            height: 480px;
+            background-color: rgba(0, 0, 0, 0.5);
+            
+        }
+        .j-3 {
+            width: 100%;
+            height: 1505px;
+        }
+        .j-4 {
+            width: 100%;
+            height: 1025px;
+            background-color: rgba(0, 0, 0, 0.2);
+            
+        }
 
 /*  */
 
