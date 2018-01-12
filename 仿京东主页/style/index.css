@@ -26,7 +26,8 @@
     .w {
         position: relative;
         margin: 0 auto;
-        min-width: 990px; max-width: 1190px;
+        /* min-width: 990px; max-width: 1190px; */
+        width: 1190px;
     }
 /* common */
     /* 鼠标移动到这上面的时候的效果 */
@@ -888,6 +889,214 @@
                 /* z-index: 1; */
             }
 /* floors */
+    /* 下面很多的都是用的同样大小的框架，也为了之后如果要做响应式好操作，我把共同的大小的地方写在这里 */
+        /* 现在我才发现，我其实每个板块分开来做说不定还快的多。。。。但是这样分成小块来写还是有好处 */
+        .floors_in-w {
+            position: relative;
+            width: 390px;
+            height: 450px;
+            background: #fff;
+            float: left;
+        }
+        .floors_in-w-transport {
+            position: relative;
+            width: 390px;
+            height: 450px;
+            float: left;
+        }
+        /* floors_in_box */
+            [class *= floors_in_box ]{
+                position: relative;
+                width: 390px;
+                height: 450px;
+                float: left;
+            }
+            .floors_in_box-right::before {
+                position: absolute;
+                content: "";
+                display: block;
+                width: 340px; height: 420px;
+                left: 40px; top: 20px;
+                border: 5px solid #333;
+            }
+            .floors_in_box-right::after {
+                z-index: 0;
+                position: absolute;
+                left: 20px; top: 0;
+                content: "";
+                display: block;
+                width: 340px; height: 420px;
+                background-color: #f0f3ef;
+            }
+            .floors_in_box-left::before {
+                position: absolute;
+                content: "";
+                display: block;
+                width: 340px; height: 420px;
+                right: 40px; top: 20px;
+                border: 5px solid #333;
+            }
+            .floors_in_box-left::after {
+                z-index: 0;
+                position: absolute;
+                right: 20px; top: 0;
+                content: "";
+                display: block;
+                width: 340px; height: 420px;
+                background-color: #f0f3ef;
+            }
+        /* margin and float */
+            .float_left {
+                float: left;
+            }
+            .float_right {
+                float: right;
+            }
+            .margin_center {
+                margin: 0 auto;
+                overflow: hidden;
+                text-align: center;
+            }
+            .margin_right-10 {
+                margin-right: 10px;
+            }
+            .margin_bottom-10 {
+                margin-bottom: 10px;
+            }
+            .margin_bottom-20 {
+                margin-bottom: 20px;
+            }
+            .margin_left-20 {
+                margin-left: 20px;
+                overflow: hidden;
+            }
+            .margin_left-30 {
+                margin-left: 30px;
+            }
+        .floors_stand_top {
+            width: 350px;
+            height: 60px;
+            padding: 0 20px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .floors_stand_bottom {
+            width: 390px; 
+            height: 380px;
+        }
+        /* fr_div */
+            [class *= fr_div-]:hover div {
+                overflow: hidden;
+                display: block;
+                filter: alpha(opacity(70)); opacity: 0.7;
+                /* transition可以直接写在hover上 */
+                transition: all .5s ease;   
+            }
+            .fr_div-100 {
+                width: 100px; height: 100px;
+            }
+            .fr_div-110 {
+                width: 110px; height: 110px;
+                margin: 0 5px;
+            }
+            .fr_div-120 {
+                width: 120px; height: 120px;
+            }
+            .fr_div-190 {
+                width: 190px; height: 220px;
+            }
+            .fr_div-170 {
+                width: 170px; height: 180px;
+            }
+            .fr_div-350 {
+                display: block;
+                width: 350px; height: 180px;
+            }
+            .fr_div-350-250 {
+                width: 350px; height: 250px;
+            }
+            .fr_div-340 {
+                /* 这里要加position然后设置zindex才有效 */
+                position: relative;
+                z-index: 1; 
+                display: block;
+                width: 340px; height: 420px;
+            }
+            .fr_div-340-200 {
+                position: relative;
+                z-index: 1;
+                display: block;
+                width: 340px; height: 200px;
+            }
+        /* floors_in_4pic */
+            .floors_in_4pic li {
+                position: relative;
+                display: block;
+                width: 190px; height: 220px;
+                background-color: #fff;
+                text-align: center;
+            }
+            .floors_in_4pic li img {
+                margin: 25px 0 20px;
+            }
+            .floors_in_4pic li p {
+                display: block;
+                width: 150px; height: 22px; line-height: 22px;
+                font-size: 14px; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+                margin: 0 auto; text-align: center;
+            }
+            .floors_in_4pic li span {
+                display: block;
+                width: 150px; height: 24px; line-break: 24px; 
+                font-size: 16px; color: #e2231a; 
+                margin: 0 auto; text-align: center;
+            }
+            .floors_in_4pic li span i {
+                font-style: normal;
+                font-size: 12px; margin: 3px;
+            }
+        /* floors_title_biger */
+            .floors_title_biger b {
+                font-weight: normal;
+                position: relative;
+                display: block;
+                width: 350px;
+                height: 45px;
+                margin: 20px;
+            }
+            .floors_title_biger b i {
+                text-align: center;
+                display: block; float: left;
+                width: 135px; height: 45px;
+                border: 1px solid #ccc;
+            }
+            .floors_title_biger b p {
+                display: block; float: left; margin: 0;
+                width: 210px; height: 45px; line-height: 45px; text-indent: 5px;
+            }
+            .floors_title_biger b p a {
+                font-size: 18px; color: #333;
+            }
+            .floors_title_biger span {
+                display: block;
+                margin: 0 20px 20px 20px;
+                width: 350px; height: 226px;
+
+            }
+            .floors_title_biger ul {
+                display: block;
+                margin: 0 20px;
+                width: 350px; height: 100px;
+                overflow: hidden;
+            }
+            .floors_title_biger ul li {
+                position: relative; float: left;
+                display: block;
+                width: 100px; height: 100px; 
+            }
+            .floors_title_biger_li {
+                margin: 0 25px;
+            }
+        /*  */
     /* jd-1 */
         .jd-1 {
             width: 100%;
@@ -1122,22 +1331,163 @@
             }
 
     /* jd-2 */
-        .j-1 {
+        .jd-2 {
             width: 100%;
+            /* margin-bottom: 30px; */
+            background-color: #eee;
+        }
+        .jd-2-w {
+            width: 1190px;
             height: 480px;
-            background-color: rgba(0, 0, 0, 0.4);
-            
+            margin: 0 auto;
         }
-        .j-2 {
+        .jd-2_inw {
+            position: relative;
+            width: 390px;
+            height: 450px;
+        }
+        .jd-2_title {
             width: 100%;
+            height: 60px;
+        }
+        .jd-2_content {
+            width: 100%;
+            height: 355px;
+            /* background: red; */
+        }
+        /* jd-2_left */
+            .jd-2_left {
+                float: left; 
+                margin-right: 10px;
+            }
+        /* jd-2_middle */    
+            .jd-2_middle {
+                float: left;
+            }
+            .jd-2_pic-w {
+                width: 100px;
+                height: 100px;
+            }
+            .jd-2_pic-w div {
+                width: 20px;
+                height: 20px;
+            }
+            #jd-2_middle-content {
+                background: rgba(0, 0, 0, 0.1);
+            }
+
+        /* jd-2_right */
+            .jd-2_right {
+                float: right;
+            }
+    /* jd-3 */
+        .jd-3 {
+            width: 100%;
+            /* margin-bottom: 30px; */
+            background-color: #eee;
+        }
+        .jd-3-w {
+            width: 1190px;
             height: 480px;
-            background-color: rgba(0, 0, 0, 0.5);
-            
+            margin: 0 auto;
         }
-        .j-3 {
+        .jd-3_inw {
+            position: relative;
+            width: 390px;
+            height: 450px;
+        }
+        .jd-3_title {
             width: 100%;
-            height: 1505px;
+            height: 60px;
         }
+        .jd-3_content {
+            width: 100%;
+            /* height: 355px; */
+            /* background: red; */
+        }
+        /* jd-3_left */
+            .jd-3_left {
+                float: left; 
+                margin-right: 10px;
+            }
+        /* jd-3_middle */    
+            .jd-3_middle {
+                float: left;
+            }
+            /* #jd-3_middle-content {
+                background: rgba(0, 0, 0, 0.1);
+            } */
+            .jd-3_11 {
+                background-color: #FFF;
+            }
+            .jd-3_11 ul {
+                border-top: 1px solid;
+                display: block;
+                width: 360px;
+                height: 375px;
+                margin: 0 15px;
+            }
+            .jd-3_11 ul li{
+                list-style: none;
+                position: relative;
+                float: left;
+                width: 110px;
+                height: 120px;
+                margin: 0 5px;
+                text-align: center;
+            }
+            .jd-3_11 ul li p {
+                display: block;
+                text-align: center;
+                white-space: nowrap;
+                font-size: 14px;
+                height: 34px;
+                line-height: 34px;
+                padding: 0 4px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                color: #333;
+            }
+            .jd-3_11 ul li:hover div {
+                overflow: hidden;
+                filter: alpha(opacity(70)); opacity: 0.7;
+            }
+        /* jd-3_right */
+        .jd-3_right {
+            float: right;
+        }
+    /* jd-4 */
+        .jd-4 {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        /* jd-4-main-title */
+            .jd-4-title {
+                position: relative;
+                height: 65px;
+                background: red;
+            }
+        /* jd-4-content1 */ 
+            .jd-4-content1 {
+                width: 1190px;
+                height: 480px;
+                margin: 0 auto;
+            }
+        /* jd-4-content2 */ 
+            .jd-4-content2 {
+                width: 1190px;
+                height: 480px;
+                margin: 0 auto;
+            }
+        /* jd-4-content3 */
+            .jd-4-content3 {
+                width: 1190px;
+                height: 480px;
+                margin: 0 auto;
+            }
+
+    /*  */
         .j-4 {
             width: 100%;
             height: 1025px;

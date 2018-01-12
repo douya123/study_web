@@ -340,115 +340,159 @@ window.onload = function () {
         }  
     /* floor里的计时器 */
         /* 这里的计时器之后再写过，这个只能一次订到一个时间，不能设置 */
-        // var sy, sm, sd, sh, smin, ss;
-        // sy = 2018; sm = 1; sd = 8; sh = 23; smin = 44; ss = 5;
-        // sm = _t2(sm);sd = _t2(sd);sh = _t2(sh);smim = _t2(smin);ss = _t2(ss);
-        // var settime = sy + "/" + sm + "/" + sd + "/," + sh + ":" + smin + ":" + ss;
-        // var endTime = new Date(settime);
-        // var aCont = new Array();
-        var hour = document.getElementById('h');
-        var minute = document.getElementById('m');
-        var second = document.getElementById('s');
-        var sy, sm, sd, sh, smin, ss;
-        sy = 2018; sm = 1; sd = 10; sh = 21; smin = 57; ss = 5;
-        function t() {
-            sm = _t2(parseInt(sm));sd = _t2(parseInt(sd));sh = _t2(parseInt(sh));smim = _t2(parseInt(smin));ss = _t2(parseInt(ss));
-            var settime = sy + "/" + sm + "/" + sd + "/," + sh + ":" + smin + ":" + ss;
-            var endTime = new Date(settime);
+            // var sy, sm, sd, sh, smin, ss;
+            // sy = 2018; sm = 1; sd = 8; sh = 23; smin = 44; ss = 5;
+            // sm = _t2(sm);sd = _t2(sd);sh = _t2(sh);smim = _t2(smin);ss = _t2(ss);
+            // var settime = sy + "/" + sm + "/" + sd + "/," + sh + ":" + smin + ":" + ss;
+            // var endTime = new Date(settime);
             // var aCont = new Array();
-            var d, h, m, s;
-            var nowTime = new Date();
-            var x = endTime - nowTime;
-            if ( x > 0) {
-                d = Math.floor(x/1000/60/60/24);    //这里是相差的天数
-                h = Math.floor(x/1000/60/60%24);    //这里是相差的小时
-                m = Math.floor(x/1000/60%60);       //这里是相差的分钟数
-                s = Math.floor(x/1000%60);          //这里是相差的秒数
-                // if(h==0 && m==0 && s==0) {
-                //     sy = parseInt(nowTime.getFullYear());
-                //     sd = parseInt(nowTime.getDay());
-                //     sh = parseInt(sh);
-                //     if ((sh + 2) > 24 ) {
-                //         sh = 0;
-                //         sd++;
-                //         if (sd > 365) {
-                //             sd = 0;
-                //             sy++;
-                //         }
-                //     } else {
-                //         sh = sh + 2;
-                //     }
-                // }
-                d = _t2(d); h = _t2(h); m = _t2(m); s = _t2(s);
-                // aCont[0] = d; aCont[1] = h; aCont[2] = m; aCont[0] = s;
-                /* 这里让它返回出数组 */
-                hour.innerHTML = h;
-                minute.innerHTML = m;
-                second.innerHTML = s;
-                
-                // return aCont;
-            } 
-            // else {
-                // 这下面的切换一直是有问题的，每次太慢了
-                /* 这里加载的速度还是太慢，要从天数开始加，不然小时的花要加12次，大大的拖慢了计时器加载的速度 */
-                /* 重新写计算的顺序，减少加载时间 */
-                sy = parseInt(nowTime.getFullYear());
-                sd = parseInt(nowTime.getDay());
-                sh = parseInt(sh);
-                if ((sh + 2) > 24 ) {
-                    sh = 0;
-                    sd++;
-                    if (sd > 365) {
-                        sd = 0;
-                        sy++;
+            // var hour = document.getElementById('h');
+            // var minute = document.getElementById('m');
+            // var second = document.getElementById('s');
+            /*
+            var sy, sm, sd, sh, smin, ss;
+            sy = 2018; sm = 1; sd = 10; sh = 21; smin = 57; ss = 5;
+            function t() {
+                sm = _t2(parseInt(sm));sd = _t2(parseInt(sd));sh = _t2(parseInt(sh));smim = _t2(parseInt(smin));ss = _t2(parseInt(ss));
+                var settime = sy + "/" + sm + "/" + sd + "/," + sh + ":" + smin + ":" + ss;
+                var endTime = new Date(settime);
+                // var aCont = new Array();
+                var d, h, m, s;
+                var nowTime = new Date();
+                var x = endTime - nowTime;
+                if ( x > 0) {
+                    d = Math.floor(x/1000/60/60/24);    //这里是相差的天数
+                    h = Math.floor(x/1000/60/60%24);    //这里是相差的小时
+                    m = Math.floor(x/1000/60%60);       //这里是相差的分钟数
+                    s = Math.floor(x/1000%60);          //这里是相差的秒数
+                    // if(h==0 && m==0 && s==0) {
+                    //     sy = parseInt(nowTime.getFullYear());
+                    //     sd = parseInt(nowTime.getDay());
+                    //     sh = parseInt(sh);
+                    //     if ((sh + 2) > 24 ) {
+                    //         sh = 0;
+                    //         sd++;
+                    //         if (sd > 365) {
+                    //             sd = 0;
+                    //             sy++;
+                    //         }
+                    //     } else {
+                    //         sh = sh + 2;
+                    //     }
+                    // }
+                    d = _t2(d); h = _t2(h); m = _t2(m); s = _t2(s);
+                    // aCont[0] = d; aCont[1] = h; aCont[2] = m; aCont[0] = s;
+                    // 这里让它返回出数组 
+                    hour.innerHTML = h;
+                    minute.innerHTML = m;
+                    second.innerHTML = s;
+                    
+                    // return aCont;
+                } 
+                // else {
+                    // 这下面的切换一直是有问题的，每次太慢了
+                    // 这里加载的速度还是太慢，要从天数开始加，不然小时的花要加12次，大大的拖慢了计时器加载的速度 
+                    // 重新写计算的顺序，减少加载时间 
+                    sy = parseInt(nowTime.getFullYear());
+                    sd = parseInt(nowTime.getDay());
+                    sh = parseInt(sh);
+                    if ((sh + 2) > 24 ) {
+                        sh = 0;
+                        sd++;
+                        if (sd > 365) {
+                            sd = 0;
+                            sy++;
+                        }
+                    } else {
+                        sh = sh + 2;
                     }
-                } else {
-                    sh = sh + 2;
-                }
-                /* 获取当前的天数 */
-                // sd = parseInt(nowTime.getDay());
-                // sh = parseInt(sh) + 2;
-                // if (sh > 24) {
-                //     sh = 0;
-                //     sd = parseInt(sd) + 1;
-                //     aCont[0] = sh;
-                //     aCont[1] = sd;
-                //     if (sd > 365) {
-                //         sd = 0;
-                //         parseInt(sy) + 1;
-                //         aCont[1] = sd;
-                //         aCont[2] = sy;
-                //     }
-                // } else {
-                //     aCont[0] = sh;
-                // }
-            // }           
-        }
-        /* 之后要解决时间加载太慢的问题 */
-        t();
-        setInterval(function() {
+                    // 获取当前的天数 
+                    // sd = parseInt(nowTime.getDay());
+                    // sh = parseInt(sh) + 2;
+                    // if (sh > 24) {
+                    //     sh = 0;
+                    //     sd = parseInt(sd) + 1;
+                    //     aCont[0] = sh;
+                    //     aCont[1] = sd;
+                    //     if (sd > 365) {
+                    //         sd = 0;
+                    //         parseInt(sy) + 1;
+                    //         aCont[1] = sd;
+                    //         aCont[2] = sy;
+                    //     }
+                    // } else {
+                    //     aCont[0] = sh;
+                    // }
+                // }           
+            }
+            // 之后要解决时间加载太慢的问题 
             t();
-            /* 这是之前错误的一种想法，有时间再整理到错题集里 */
-            // /* 判断并赋值 */
-            // if ( typeof t()[2] === "number") {
-            //     alert("y:" + t()[2])
+            setInterval(function() {
+                t();
+                // 这是之前错误的一种想法，有时间再整理到错题集里 
+                //  判断并赋值 
+                // if ( typeof t()[2] === "number") {
+                //     alert("y:" + t()[2])
+                    
+                //     sy = t()[2];
+                // } else if ( typeof t()[1] === "number") {
+                //     alert("d:" + t()[1])
+                //     sd = t()[1];
+                // } else if ( typeof t()[0] === "number") {
+                //     alert("h:" + t()[0])
+                //     sh = t()[0];
+                //     alert(sh)
+                // }
+                // alert("小时" + sh)
+                // alert("天数" + sd)
+            },1000);
                 
-            //     sy = t()[2];
-            // } else if ( typeof t()[1] === "number") {
-            //     alert("d:" + t()[1])
-            //     sd = t()[1];
-            // } else if ( typeof t()[0] === "number") {
-            //     alert("h:" + t()[0])
-            //     sh = t()[0];
-            //     alert(sh)
+            // if ( h == 00 && m == 00 && s == 00 ) {
+            //     alert("抢购完毕，期待下轮");
             // }
-            // alert("小时" + sh)
-            // alert("天数" + sd)
-        },1000);
-            
-        // if ( h == 00 && m == 00 && s == 00 ) {
-        //     alert("抢购完毕，期待下轮");
-        // }
+            */
+        /* 重写这个试试 */
+            var hour = document.getElementById('h');
+            var minute = document.getElementById('m');
+            var second = document.getElementById('s');
+                function time4() {
+                    var zDate = new Date();
+                    var endTwo = new Date();
+                    // if 竟然可以这样连写，那以后都这样写了
+                    if (zDate.getHours() % 2 === 0) {
+                        endTwo.setHours(zDate.getHours()+2);
+                    } else {
+                        endTwo.setHours(zDate.getHours()+1);
+                    }
+                    
+                    endTwo.setMinutes(0);
+                    endTwo.setSeconds(0);
+                    setTimeout(function(){
+                        var nowTime = new Date();
+                        var x = endTwo - nowTime;
+                        h = Math.floor(x/1000/60/60%24);    //这里是相差的小时
+                        m = Math.floor(x/1000/60%60);       //这里是相差的分钟数
+                        s = Math.floor(x/1000%60);          //这里是相差的秒数
+                        h = _t2(h); m = _t2(m); s = _t2(s);
+                        hour.innerHTML = h;
+                        minute.innerHTML = m;
+                        second.innerHTML = s;
+                        // 如果时间差都小于零了的话，证明到时间了，然后就重新打开这个定时器
+                        if (x > 0) {
+                            setTimeout(function() {
+                                time4();
+                            },1000/60)
+                        } else {
+                            // console.log("下一次");
+                            time4();
+                        }
+                    },1000/60)
+                }
+            time4();
+            // setInterval(function() {
+            //     time4();
+            // },1000*60);
+
     /* 倒计时那里的切换图片 */
         var oJd1_2_point = document.getElementById('jd-1_2pointer');
         var aJd1_2_point = oJd1_2_point.getElementsByTagName('i');
@@ -537,6 +581,9 @@ window.onload = function () {
         },1000/60)
         
     /*  */
+    /* 倒计时下面中间 */   
+        // new Tab("jd-2_middle-content");
+    /*  */
         
 
 
@@ -603,36 +650,142 @@ function _z(a) {
             }
         }
     }
-/* 当鼠标进入是显示和隐藏的代码 */
-    // 新建对象 ：采用函数构造模式
-    // function Found(name) {
-    //     this.name = name;   //这是属性
-    //     this.Fn = function () {
-    //         // 这是方法
-    //     }
-    // }
-    // var a = new Found(nnnn);    //这就是创建这个对象
-    // 这个只是采用函数构造模式创建的一个对象
-    
-    // function shide(obj,Cname) {
-    //     function Found(Cname) {
-    //         this.name = Cname;
-    //     }
-    //     obj.onmouseenter = obj.onmouseover = function () {
-    //         var a = new Found(Cname);
-    //         if (a.name == )
-    //     }
-    // }
-    /*  */
+/* 在一次重写切换那里的面向对象的代码，希望这次能成功运行，这次用一个东西传进去好了 */
     // (function(w,u) {
+    //     var 
+    //     a,
+    //     b,
+    //     c,
+    //     _dy = function () {
+    //         return new _dy.fn.init(a, b, c);
+    //     };
+    //     _dy.fn = _dy.prototype = {
+    //         constructor: _dy,
+    //         init : function (a, b, c) {
+    //             if (!a) {
+    //                 return this;
+    //             }
+    //             if (typeof a === "string") {
 
-    //     var ya = function () {
-    //         return new ya;
+    //             }
+    //         }
     //     }
-    //      知道可以不用这种方法，但是看ljq感觉这种写法是真的方便吧。。
-        
-    //     ya.name({
+    //     _dy.fn.init.prototype = _dy.fn;
+    //     window._dy = _dy;
 
-    //     })
-    //     window.ya = window._  = ya;
-    // })(window)
+    // })(window) 
+
+/* 写失败了的代码 */
+    /* 当鼠标进入是显示和隐藏的代码 */
+        // 新建对象 ：采用函数构造模式
+        // function Found(name) {
+        //     this.name = name;   //这是属性
+        //     this.Fn = function () {
+        //         // 这是方法
+        //     }
+        // }
+        // var a = new Found(nnnn);    //这就是创建这个对象
+        // 这个只是采用函数构造模式创建的一个对象
+        
+        // function shide(obj,Cname) {
+        //     function Found(Cname) {
+        //         this.name = Cname;
+        //     }
+        //     obj.onmouseenter = obj.onmouseover = function () {
+        //         var a = new Found(Cname);
+        //         if (a.name == )
+        //     }
+        // }
+        /*  */
+        // (function(w,u) {
+
+        //     var ya = function () {
+        //         return new ya;
+        //     }
+        //      知道可以不用这种方法，但是看ljq感觉这种写法是真的方便吧。。
+            
+        //     ya.name({
+
+        //     })
+        //     window.ya = window._  = ya;
+        // })(window)
+
+    /* 点击轮播的js面向对象的代码 试着写*/
+        // bug太多，运行不起，重写。。。。
+        /* function Tab(id) {
+            var _oDiv = document.getElementById(id);
+            var _oDivIn = _oDiv.children;
+            // 以后再去研究完全兼容的子节点取法https://www.jianshu.com/p/33d0c4041705
+            this.oContent = _oDivIn[0];
+            var oContent_in = this.oContent.getElementsByTagName("div");
+            this.oContent_in = oContent_in[0];
+            this.oContent_in.style.backgroundColor = "yellow";
+            this.oPoint = _oDivIn[1];
+            this.oBtn = _oDivIn[2];
+            this.aPonit = this.oPoint.getElementsByTagName("i");
+            this.oBtnPrew = this.oBtn[0];
+            this.oBtnNext = this.oBtn[1];
+            var oldclass = "";
+            var oldindex = 0;
+            var _this = this;   //这里的this如果new的话就是那个id的那个div
+            
+            for (var i=0; i<this.aPonit.length; i++) {
+                this.aPonit[i].index = i;
+                this.aPonit[i].onmouseover = this.aPonit[i].onmouseenter = function () {
+                    // 因为这个函数试一个匿名函数，this会指向window?又好像不对，这里的this因为用了onclick，所以this应该指代的是当前的指针
+                    // 所以这里_this指代的是前面的那个div对象，后面的this指代的是当点击到的指针（意思是相当于在上一个函数上加了一个属性）
+                    _this.oTrans(this);
+                    _this.table(this);
+                }
+            }
+            this.onmouseover = this.oBtnPrew.onmouseover = this.oBtnNext.onmouseover = function () {
+                _this.oBtnPrew.style.display = "block";
+                _this.oBtnNext.style.display = "block";
+            }
+            this.onmouseout = this.oBtnPrew.onmouseout = this.oBtnNext.onmouseout = function () {
+                this.oBtnPrew.style.display = this.oBtnNext.style.display = "none";
+            }
+            this.oBtnPrew.onclick = this.oBtnNext.onclick = function () {
+                var c = oldindex - this.aPonit.index;
+                this.oContent_in.style.left = this.oContent_in.offsetLeft + c + "px"; 
+                oldindex = this.aPonit.index;
+            }
+        }
+        Tab.prototype.table = function (a) {
+            for (var i=0; i<this.aPonit.length; i++) {
+                this.aPonit[i].className = oldclass;
+            }
+            a.className = oldclass + " active";      //active样式需要自己在css里写入
+            var c = oldindex - a.index;
+            if (c === 0) {
+                return oldindex = a.index;
+            } else {
+                // 只要不相等，是负的就就往负方向跑，是正的就往正方向跑，s是运行的距离
+                var s = c*(this.getStyle(this.oContent, "width"));
+            }
+            this.oContent_in.style.left = this.oContent_in.offsetLeft + s + "px"; 
+        }
+        Tab.prototype.oTrans = function (a) {
+            if (this.oTrans !== this.oTrans) {
+                if (a.nextElementSibling) {
+                    return oldclass = a.nextElementSibling.className;
+                } else {
+                    if (a.previousElementSibling) {
+                        return oldclass = a.previousElementSibling.className;
+                    } else {
+                        return oldclass = "";
+                    }
+                }
+            }
+        }
+        Tab.prototype.getStyle = function (a, b, c) {
+            if(arguments.length==2) {
+                if(a.currentStyle) {
+                    return a.currentStyle[b];
+                } else {
+                    return getComputedStyle(a, false) [b];
+                }
+            } else {
+                a.style[b]= c; 
+            }
+        } */
