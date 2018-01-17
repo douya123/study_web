@@ -1,0 +1,112 @@
+<!-- 这是我写的关于排行榜那里的模板，可以直接用，但是要配合我写的css一起用，不然就不对 -->
+<strong class="rank_c_w" style="display:block">
+    <div class="rank_c_must_w">
+        <div class="rank_c_must" id="rank_in_content>
+            <ul class="rank_c_in">     
+                <li>
+                    <a href="javascript:;">
+                        <img src="images/rank1.jpg" alt="">
+                    </a>
+                    <b class="rank_b1">1</b>
+                    <p>五丰 美仑达 特级琯溪蜜柚 鸳鸯柚子2粒装 1粒红肉+1粒白肉 2.5kg-3kg 简致礼盒 新鲜水果</p>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="images/rank2.jpg" alt="">
+                    </a>
+                    <b class="rank_b2">2</b>
+                    <p>爱奇果 陕西眉县阳光金果 黄心猕猴桃 12个 单果80-100g</p>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="images/rank3.jpg" alt="">
+                    </a>
+                    <b class="rank_b3">3</b>
+                    <p>陕西富平柿饼 圆饼柿子饼 400g</p>
+                </li>
+            </ul>
+            <ul class="rank_c_in">
+                <li>
+                    <a href="javascript:;">
+                        <img src="images/rank4.jpg" alt="">
+                    </a>
+                    <b>4</b>
+                    <p>希腊 进口绿奇异果 6个装 单果重约80-100g 新鲜水果</p>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="images/rank5.jpg" alt="">
+                    </a>
+                    <b>5</b>
+                    <p>美国 进口华盛顿加力果 苹果8个装 单果重约130-180g 新鲜水果</p>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="images/rank6.jpg" alt="">
+                    </a>
+                    <b>6</b>
+                    <p>越南进口白心火龙果 3个装大果 单果约450~500g 新鲜水果</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <span id="rank_in_point">
+        <i class="rank_i"></i>
+        <i></i>
+    </span>
+
+<!-- 这是我写的关于排行榜后面那里的那里的模板，可以直接用，但是要配合我写的css一起用，不然就不对 -->
+<div class="floors_stand_bottom">
+    <div id="jd-2-tab">
+        <div class="NewTabPicture jd-2-NewTabPicture">
+            <div class="PictureIn jd-2-PictureIn" >
+                <a href="javascript:;">
+                    <img src="images/jd2-2-9.jpg" alt="">
+                    <h3>
+                        <i><img src="images/jd2-2-10.jpg" alt=""></i>
+                        <i><img src="images/jd2-2-11.jpg" alt=""></i>
+                        <i><img src="images/jd2-2-12.jpg" alt=""></i>
+                    </h3>
+                    <h4>
+                        <b></b>
+                        <p></p>
+                        <span></span>
+                    </h4>
+                </a>
+                <a href="javascript:;">
+                    <img src="images/jd2-2-1.jpg" alt="">
+                    <h3>
+                        <i><img src="images/jd2-2-2.jpg" alt=""></i>
+                        <i><img src="images/jd2-2-3.jpg" alt=""></i>
+                        <i><img src="images/jd2-2-4.jpg" alt=""></i>
+                    </h3>
+                    <h4>
+                        <b></b>
+                        <p></p>
+                        <span></span>
+                    </h4>
+                </a>
+                <a href="javascript:;">
+                    <img src="images/jd2-2-5.jpg" alt="">
+                    <h3>
+                        <i><img src="images/jd2-2-6.jpg" alt=""></i>
+                        <i><img src="images/jd2-2-7.jpg" alt=""></i>
+                        <i><img src="images/jd2-2-8.jpg" alt=""></i>
+                    </h3>
+                    <h4>
+                        <b></b>
+                        <p></p>
+                        <span></span>
+                    </h4>
+                </a>
+            </div>
+        </div>
+        <div class="NewTabPoint jd_2_tab_piont">
+            <i class="rank_i"></i>
+            <i></i>
+            <i></i>
+        </div>
+        <div class="NewTabPrew swithbutton prew"></div>
+        <div class="NewTabNext swithbutton next"></div>
+    </div>
+</div>
