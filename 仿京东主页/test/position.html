@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>测试绝对定位剧中</title>
+        <meta charset="utf-8">
+        <style>
+            .div1 {
+                /* position: absolute;
+                width: 300px; 
+                height: 300px;
+                left: 0; right: 0; top: 0; bottom: 0;
+                margin: auto;
+                background-color: red; */
+
+                /* 利用transform居中 */
+                position: absolute;		/* 相对定位或绝对定位均可 */
+                width:500px;
+                height:300px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: pink;	 	/* 方便看效果 */
+
+            }
+        </style>
+    </head>
+    <body>
+        <div class="div1"></div>
+    </body>
+</html>

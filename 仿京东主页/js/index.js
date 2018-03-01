@@ -273,15 +273,16 @@ window.onload = function () {
             oBtnNext.onmouseover = oBtnPrew.onmouseover = function () {
                 oBtnPrew.style.display = 'block';
                 oBtnNext.style.display = 'block';
-                this.style.backgroundColor = 'blue';
-                this.style.backgroundColor = 'blue';
+                // 这是之前测试的时候写的颜色改变
+                // this.style.backgroundColor = 'blue';
+                // this.style.backgroundColor = 'blue';
                 k = 1;
             }
             oBtnNext.onmouseout = oBtnPrew.onmouseout = function () {
                 oBtnPrew.style.display = 'none';
                 oBtnNext.style.display = 'none';
-                this.style.backgroundColor = 'red';
-                this.style.backgroundColor = 'red';
+                // this.style.backgroundColor = 'red';
+                // this.style.backgroundColor = 'red';
             }
             aSlideshowPhoto[i].onmouseenter = aIndicator[i].onmouseenter = function() {
                 k = 1;
@@ -459,6 +460,7 @@ window.onload = function () {
                     var zDate = new Date();
                     var endTwo = new Date();
                     // if 竟然可以这样连写，那以后都这样写了
+                    // 好像不可以，后来我改成%2了
                     if (zDate.getHours() % 2 === 0) {
                         endTwo.setHours(zDate.getHours()+2);
                     } else {
@@ -470,6 +472,7 @@ window.onload = function () {
                     setTimeout(function(){
                         var nowTime = new Date();
                         var x = endTwo - nowTime;
+                        // 这里我忘了实在之前定义过还是怎么的，但是这样写肯定对代码是不好的，没有定义hms，容易对之后代码出现问题
                         h = Math.floor(x/1000/60/60%24);    //这里是相差的小时
                         m = Math.floor(x/1000/60%60);       //这里是相差的分钟数
                         s = Math.floor(x/1000%60);          //这里是相差的秒数
